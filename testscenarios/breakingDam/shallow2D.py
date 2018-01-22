@@ -147,8 +147,8 @@ def shallow2D(use_petsc=False,iplot=0,htmlplot=False,outdir='./_output',solver_t
     ylower = 0
     yupper = 1
 
-    x = pyclaw.Dimension('x',xlower,xupper,mx)
-    y = pyclaw.Dimension('y',ylower,yupper,my)
+    x = pyclaw.Dimension(xlower,xupper,mx, name='x')
+    y = pyclaw.Dimension(ylower,yupper,my, name = 'y')
     domain = pyclaw.Domain([x,y])
 
     state = pyclaw.State(domain,solver.num_eqn)
@@ -218,4 +218,4 @@ if __name__=="__main__":
     from clawpack.pyclaw.util import run_app_from_main
     output = run_app_from_main(shallow2D)
 
-    output.solver.teardown()
+    #output.solver.teardown()
