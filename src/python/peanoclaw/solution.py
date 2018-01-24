@@ -54,8 +54,8 @@ class Solution(pyclaw.solution.Solution):
                 subdivision_factor_x = q.shape[1]
                 subdivision_factor_y = q.shape[2]
                 unknowns_per_subcell = q.shape[0]
-                dim_x = pyclaw.Dimension('x', position_x, position_x + size_x, subdivision_factor_x)
-                dim_y = pyclaw.Dimension('y', position_y, position_y + size_y, subdivision_factor_y)
+                dim_x = pyclaw.Dimension(position_x, position_x + size_x, subdivision_factor_x, name ='x')
+                dim_y = pyclaw.Dimension(position_y, position_y + size_y, subdivision_factor_y, name ='y')
 
                 patch = pyclaw.geometry.Patch((dim_x, dim_y))
 
@@ -64,9 +64,9 @@ class Solution(pyclaw.solution.Solution):
                 subdivision_factor_y = q.shape[2]
                 subdivision_factor_z = q.shape[3]
                 unknowns_per_subcell = q.shape[0]
-                dim_x = pyclaw.Dimension('x', position_x, position_x + size_x, subdivision_factor_x)
-                dim_y = pyclaw.Dimension('y', position_y, position_y + size_y, subdivision_factor_y)
-                dim_z = pyclaw.Dimension('z', position_z, position_z + size_z, subdivision_factor_z)
+                dim_x = pyclaw.Dimension(position_x, position_x + size_x, subdivision_factor_x, name='x')
+                dim_y = pyclaw.Dimension(position_y, position_y + size_y, subdivision_factor_y, name='y')
+                dim_z = pyclaw.Dimension(position_z, position_z + size_z, subdivision_factor_z, name='z')
                 
                 patch = pyclaw.geometry.Patch((dim_x, dim_y,dim_z))
 

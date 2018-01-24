@@ -16,13 +16,13 @@ def create_domain(number_of_dimensions, position, size, subdivision_factor):
   from clawpack.pyclaw import Domain
   
   if number_of_dimensions is 2:
-    dim_x = Dimension('x', position[0], position[0] + size[0], subdivision_factor[0])
-    dim_y = Dimension('y', position[1], position[1] + size[1], subdivision_factor[1])
+    dim_x = Dimension(position[0], position[0] + size[0], subdivision_factor[0], name='x')
+    dim_y = Dimension(position[1], position[1] + size[1], subdivision_factor[1], name='y')
     return Domain([dim_x, dim_y])
   elif number_of_dimensions is 3:
-    dim_x = Dimension('x', position[0], position[0] + size[0], subdivision_factor[0])
-    dim_y = Dimension('y', position[1], position[1] + size[1], subdivision_factor[1])
-    dim_z = Dimension('z', position[2], position[2] + size[2], subdivision_factor[2])
+    dim_x = Dimension(position[0], position[0] + size[0], subdivision_factor[0], name='x')
+    dim_y = Dimension(position[1], position[1] + size[1], subdivision_factor[1], name='y')
+    dim_z = Dimension(position[2], position[2] + size[2], subdivision_factor[2], name='z')
     return Domain([dim_x, dim_y, dim_z])
     
 def create_subgrid_state(global_state, domain, q, qbc, aux, unknowns_per_cell, aux_fields_per_cell):

@@ -52,14 +52,14 @@ class InitializationCallback(object):
         
         dim = get_number_of_dimensions(q)
         if dim is 2:
-            self.dim_x = pyclaw.Dimension('x',position_x,position_x + size_x,subdivision_factor_x0)
-            self.dim_y = pyclaw.Dimension('y',position_y,position_y + size_y,subdivision_factor_x1)
+            self.dim_x = pyclaw.Dimension(position_x,position_x + size_x,subdivision_factor_x0, name='x')
+            self.dim_y = pyclaw.Dimension(position_y,position_y + size_y,subdivision_factor_x1, name='y')
             domain = pyclaw.Domain([self.dim_x,self.dim_y])
 
         elif dim is 3:
-            self.dim_x = pyclaw.Dimension('x',position_x,position_x + size_x,subdivision_factor_x0)
-            self.dim_y = pyclaw.Dimension('y',position_y,position_y + size_y,subdivision_factor_x1)
-            self.dim_z = pyclaw.Dimension('z',position_z,position_z + size_z,subdivision_factor_x2)
+            self.dim_x = pyclaw.Dimension(position_x,position_x + size_x,subdivision_factor_x0, name='x')
+            self.dim_y = pyclaw.Dimension(position_y,position_y + size_y,subdivision_factor_x1, name='y')
+            self.dim_z = pyclaw.Dimension(position_z,position_z + size_z,subdivision_factor_x2, name='z')
             domain = pyclaw.Domain([self.dim_x,self.dim_y,self.dim_z])
                 
         subgrid_state = pyclaw.State(domain, unknowns_per_subcell, aux_fields_per_subcell)
